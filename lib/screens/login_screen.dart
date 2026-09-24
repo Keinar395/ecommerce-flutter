@@ -17,8 +17,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
 
-  // Senkop Kırmızısı
-  final Color _senkopRed = const Color(0xFFD32F2F);
+  // Cangöz Müzik Turuncusu
+  final Color _cangozOrange = const Color(0xFFE65100);
 
   Future<void> _signInWithPassword() async {
     final email = _emailController.text.trim();
@@ -99,12 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Senkop Müzik', // Güncellendi
+                    'Cangöz Müzik', // Güncellendi
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: _senkopRed, // Güncellendi
+                      color: _cangozOrange, // Güncellendi
                       letterSpacing: -0.5,
                     ),
                   ),
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: _senkopRed, // Güncellendi
+                          color: _cangozOrange, // Güncellendi
                           width: 2,
                         ),
                       ),
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: _senkopRed, // Güncellendi
+                          color: _cangozOrange, // Güncellendi
                           width: 2,
                         ),
                       ),
@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ElevatedButton(
                     onPressed: _isLoading ? null : _signInWithPassword,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _senkopRed, // Güncellendi
+                      backgroundColor: _cangozOrange, // Güncellendi
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
@@ -250,7 +250,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                             text: 'Kayıt Ol',
                             style: GoogleFonts.lato(
-                              color: _senkopRed, // Güncellendi
+                              color: _cangozOrange, // Güncellendi
                               fontWeight: FontWeight.bold,
                             ),
                           ),

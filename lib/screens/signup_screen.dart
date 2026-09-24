@@ -15,8 +15,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isLoading = false;
   bool _isKvkkAccepted = false;
 
-  // Senkop Kırmızısı
-  final Color _senkopRed = const Color(0xFFD32F2F);
+  final Color _cangozOrange = const Color(0xFFE65100);
 
   Future<void> _signUp() async {
     final email = _emailController.text.trim();
@@ -55,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Kayıt başarılı! Lütfen giriş yapın.')),
         );
-        Navigator.pop(context); // Giriş ekranına geri döner
+        Navigator.pop(context);
       }
     } on AuthException catch (error) {
       if (mounted) {
@@ -134,10 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: _senkopRed, // Güncellendi
-                          width: 2,
-                        ),
+                        borderSide: BorderSide(color: _cangozOrange, width: 2),
                       ),
                     ),
                   ),
@@ -154,10 +150,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: _senkopRed, // Güncellendi
-                          width: 2,
-                        ),
+                        borderSide: BorderSide(color: _cangozOrange, width: 2),
                       ),
                     ),
                   ),
@@ -171,7 +164,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 24,
                         child: Checkbox(
                           value: _isKvkkAccepted,
-                          activeColor: _senkopRed, // Güncellendi
+                          activeColor: _cangozOrange,
                           onChanged: (value) {
                             setState(() {
                               _isKvkkAccepted = value ?? false;
@@ -199,7 +192,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 TextSpan(
                                   text: 'KVKK Aydınlatma Metni',
                                   style: GoogleFonts.lato(
-                                    color: _senkopRed, // Güncellendi
+                                    color: _cangozOrange,
                                     fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -219,7 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ElevatedButton(
                     onPressed: _isLoading ? null : _signUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _senkopRed, // Güncellendi
+                      backgroundColor: _cangozOrange,
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(

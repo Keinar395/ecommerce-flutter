@@ -30,8 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, dynamic>> _campaigns = [];
   bool _isLoadingCampaigns = true;
 
-  // Tasarımda kullanacağımız ana Senkop rengi
-  final Color _senkopRed = const Color(0xFFD32F2F);
+  final Color _cangozOrange = const Color(0xFFE65100);
 
   @override
   void initState() {
@@ -113,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildHomeContent() {
     return RefreshIndicator(
-      color: _senkopRed,
+      color: _cangozOrange,
       onRefresh: () async {
         setState(() {
           _isLoadingCampaigns = true;
@@ -131,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. ARAMA ÇUBUĞU
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
               child: TextField(
@@ -143,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: InputDecoration(
                   hintText: 'Gitar, piyano, marka ara...',
                   hintStyle: TextStyle(color: Colors.grey[500]),
-                  prefixIcon: Icon(Icons.search, color: _senkopRed),
+                  prefixIcon: Icon(Icons.search, color: _cangozOrange),
                   filled: true,
                   fillColor: Colors.grey[200],
                   border: OutlineInputBorder(
@@ -155,12 +153,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // 2. KAMPANYA SLIDER
             _isLoadingCampaigns
                 ? SizedBox(
                     height: 140,
                     child: Center(
-                      child: CircularProgressIndicator(color: _senkopRed),
+                      child: CircularProgressIndicator(color: _cangozOrange),
                     ),
                   )
                 : _campaigns.isEmpty
@@ -182,7 +179,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             const SizedBox(height: 32),
 
-            // 3. POPÜLER MARKALAR
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -195,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 16),
             _isLoadingBrands
-                ? Center(child: CircularProgressIndicator(color: _senkopRed))
+                ? Center(child: CircularProgressIndicator(color: _cangozOrange))
                 : SizedBox(
                     height: 90,
                     child: ListView.builder(
@@ -292,7 +288,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             const SizedBox(height: 32),
 
-            // 4. KATEGORİLER
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -305,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 16),
             _isLoadingCategories
-                ? Center(child: CircularProgressIndicator(color: _senkopRed))
+                ? Center(child: CircularProgressIndicator(color: _cangozOrange))
                 : GridView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     physics: const NeverScrollableScrollPhysics(),
@@ -332,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: _senkopRed, // Kategoriler artık Senkop Kırmızısı
+                            color: _cangozOrange,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Center(
@@ -362,13 +357,12 @@ class _HomeScreenState extends State<HomeScreen> {
     final subtitle = campaign['subtitle'] ?? '';
     final imageUrl = campaign['image_url'];
 
-    // Eğer Supabase'de kampanya rengi belirtilmemişse varsayılan olarak kırmızıya düşsün
-    String hexString = campaign['color_hex'] ?? '0xFFD32F2F';
-    Color bgColor = _senkopRed;
+    String hexString = campaign['color_hex'] ?? '0xFFE65100';
+    Color bgColor = _cangozOrange;
     try {
       bgColor = Color(int.parse(hexString));
     } catch (e) {
-      bgColor = _senkopRed;
+      bgColor = _cangozOrange;
     }
 
     return GestureDetector(
@@ -451,9 +445,9 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.white,
               elevation: 0,
               title: Text(
-                'Senkop Müzik', // Başlık güncellendi
+                'Cangöz Müzik',
                 style: GoogleFonts.lato(
-                  color: _senkopRed, // Metin rengi kırmızı yapıldı
+                  color: _cangozOrange,
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
                 ),
@@ -465,7 +459,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) => setState(() => _selectedIndex = index),
-        selectedItemColor: _senkopRed, // Alt menü seçili ikon rengi
+        selectedItemColor: _cangozOrange,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,

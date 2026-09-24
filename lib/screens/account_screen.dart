@@ -17,8 +17,7 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  // Senkop Kırmızısı
-  final Color _senkopRed = const Color(0xFFD32F2F);
+  final Color _cangozOrange = const Color(0xFFE65100);
 
   Future<void> _signOut(BuildContext context) async {
     final bool confirm =
@@ -44,7 +43,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 onPressed: () => Navigator.pop(context, true),
                 child: Text(
                   'Çıkış Yap',
-                  style: TextStyle(color: _senkopRed), // Güncellendi
+                  style: TextStyle(color: _cangozOrange),
                 ),
               ),
             ],
@@ -87,7 +86,7 @@ class _AccountScreenState extends State<AccountScreen> {
               children: [
                 CircleAvatar(
                   radius: 45,
-                  backgroundColor: _senkopRed, // Güncellendi
+                  backgroundColor: _cangozOrange,
                   child: Text(
                     initial,
                     style: GoogleFonts.lato(
@@ -216,14 +215,15 @@ class _AccountScreenState extends State<AccountScreen> {
           leading: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              // İkon arka planı Senkop kırmızısının çok hafif transparan bir tonu yapıldı
               color: isDestructive
                   ? Colors.red[50]
-                  : _senkopRed.withValues(alpha: 0.1),
+                  : _cangozOrange.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
-            // İkonun kendi rengi de siyah yerine Senkop Kırmızısı yapıldı
-            child: Icon(icon, color: isDestructive ? Colors.red : _senkopRed),
+            child: Icon(
+              icon,
+              color: isDestructive ? Colors.red : _cangozOrange,
+            ),
           ),
           title: Text(
             title,
