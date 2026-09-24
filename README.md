@@ -1,4 +1,4 @@
-# zuhal_muzik_app
+# e-commerce app
 
 A new Flutter project.
 
