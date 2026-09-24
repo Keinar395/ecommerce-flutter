@@ -178,9 +178,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           <html>
             <body style="display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
               <div style="text-align:center;">
-                <h2>Zuhal Müzik 3D Güvenli Ödeme</h2>
+                <h2>Cangöz Müzik 3D Güvenli Ödeme</h2>
                 <p>Lütfen bankanızdan telefonunuza gelen şifreyi giriniz.</p>
-                <button onclick="window.location.href='https://zuhalmuzik.com/api/payment/callback'" style="padding:10px 20px; font-size:16px; background-color:black; color:white; border:none; border-radius:8px;">Şifreyi Onayla</button>
+                <button onclick="window.location.href='https://cangozmuzik.com/api/payment/callback'" style="padding:10px 20px; font-size:16px; background-color:black; color:white; border:none; border-radius:8px;">Şifreyi Onayla</button>
               </div>
             </body>
           </html>
